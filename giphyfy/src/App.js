@@ -3,13 +3,25 @@ import './App.css';
 
 class App extends Component {
   state = {
-    searchParam: "",
+    searchParam: "cheesy",
     gifsList: []
+  }
+
+  handleSearch = (event) => {
+    const input = event.target.value
+    this.setState({
+      searchParam:input
+    })
+  }
+  handleSubimit = (event) => {
+    event.preventDefault();
+    this.fetchGhiphys()
   }
 
   fetchGhiphys = () => {
     const key = "Sbo9lDsCSy4UC17qPvLd3IowQmgap5ng";
-    fetch(`https://api.giphy.com/v1/gifs/search?api_key=${key}&q=cheeseburgers`)
+    const searchParameter = this.state.searchParam;
+    fetch(`https://api.giphy.com/v1/gifs/search?api_key=${key}&q=${searchParameter}`)
     .then( response => response.json() )
     .then((data) => {
       const imagesList = data.data.map(img => {
@@ -32,9 +44,9 @@ class App extends Component {
           <h1>GIPHYFY</h1>
         </header>
         <div>
-          <form>
+          <form onSubmit={this.handleSubimit}>
             <label htmlFor="gsearch">Search</label>
-            <input name="search" id="gsearch" />
+            <input name="search" id="gsearch" onChange={this.handleSearch} />
             <input type="submit" value="Submit" />
           </form>
         </div>
