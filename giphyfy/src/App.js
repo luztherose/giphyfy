@@ -8,16 +8,16 @@ class App extends Component {
   }
 
   handleSearch = (event) => {
-    const input = event.target.value
+    let input = event.target.value
     this.setState({
-      searchParam:input
-    })
+      searchParam:input,
+    });
   }
   handleSubimit = (event) => {
     event.preventDefault();
-    this.fetchGhiphys()
+    this.fetchGhiphys();
   }
-
+  
   fetchGhiphys = () => {
     const key = "Sbo9lDsCSy4UC17qPvLd3IowQmgap5ng";
     const searchParameter = this.state.searchParam;
@@ -39,14 +39,14 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="wrapper">
         <header>
           <h1>GIPHYFY</h1>
         </header>
         <div>
           <form onSubmit={this.handleSubimit}>
             <label htmlFor="gsearch">Search</label>
-            <input name="search" id="gsearch" onChange={this.handleSearch} />
+            <input type="text" name="search" id="gsearch" onChange={ this.handleSearch } autoFocus />
             <input type="submit" value="Submit" />
           </form>
         </div>
