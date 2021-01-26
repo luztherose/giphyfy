@@ -4,7 +4,7 @@ import './App.css';
 class App extends Component {
   state = {
     searchParam: "cheesy",
-    gifsList: []
+    gifsList: [],
   }
 
   handleSearch = (event) => {
@@ -13,11 +13,12 @@ class App extends Component {
       searchParam:input,
     });
   }
+
   handleSubimit = (event) => {
     event.preventDefault();
     this.fetchGhiphys();
   }
-  
+
   fetchGhiphys = () => {
     const key = "Sbo9lDsCSy4UC17qPvLd3IowQmgap5ng";
     const searchParameter = this.state.searchParam;
@@ -34,7 +35,7 @@ class App extends Component {
     .catch(error => console.log(error))
   }
   componentDidMount() {
-  this.fetchGhiphys()
+  this.fetchGhiphys();
   }
 
   render() {

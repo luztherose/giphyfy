@@ -16,13 +16,18 @@ html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: 
   width: 90%;
   margin: 0 auto;
 }
+h1 {
+  font-size: 3rem;
+  text-shadow: 2px 2px 4px #414040;
+}
 h1,
 form {
   text-align: center;
 }
 label {
   font-size: 1.5rem;
-  margin-right:10px ;
+  margin-right:10px;
+  font-weight: bolder;
 }
 input[type="text"] {
   width: 35%;
@@ -48,4 +53,5 @@ img {
   grid-template-rows: auto;
   gap: 20px;
 }
+
 
